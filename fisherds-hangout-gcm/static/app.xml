@@ -27,35 +27,88 @@
 
 <!-- The JavaScript for this app. This must always be a full URL not a relative path.
      Tip: You can load it from a local web server such as http://localhost/app.js for faster single user development -->
- <script src="//fisherds-hangout-gcm.appspot.com/static/app.js"></script>
-<!--<script src="http://localhost:8080/static/app.js"></script>  -->
 
 
-<h1>
-<img src="//fisherds-hangout-gcm.appspot.com/static/hangouts-logo.png" alt="Google+ Hangouts Logo" height="50" width="50">Starter App</h1>
-<div style="float: left; padding: 0px 20px; border-right: 1px solid #EEE">
-  <p>Collaborate with your friends to count to a big number!</p>
-  <dl>
-    <dt>Current count:</dt>
-    <dd id="count"></dd>
-    <dt>Player count:</dt>
-    <dd id="participants"></dd>
-  </dl>
+<script type="text/javascript" src="https://fisherds-hangout-gcm.appspot.com/static/js/base.js"></script>
 
-  <input type=button value="Click Me!" id="countButton"
-      onClick="countButtonClick()"/>
-  <input type=button value="Reset" id="resetButton"
-      onClick="resetButtonClick()"/>
+
+    <link type="text/css" rel="stylesheet" href="https://fisherds-hangout-gcm.appspot.com/static/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="https://fisherds-hangout-gcm.appspot.com/static/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+    
+<!--  	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css"> -->
+	
+ 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+ 	<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    
+    
+    <script type="text/javascript" src="/static/js/base.js"></script>
+    <style type="text/css">
+        body {
+            padding-top: 40px;
+            padding-bottom: 40px;
+            background-color: #f5f5f5;
+        }
+        blockquote {
+            margin-bottom: 10px;
+            border-left-color: #bbb;
+        }
+        form {
+            margin-top: 10px;
+        }
+        .form-signin input[type="text"] {
+            font-size: 16px;
+            height: auto;
+            margin-bottom: 15px;
+            padding: 7px 9px;
+        }
+        .row {
+            margin-left: 0px;
+            margin-top: 10px;
+            overflow: scroll;
+        }
+    </style>
+</head>
+<body>
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="brand" href="#">Fisherds Hangout GCM</a>
+            <div class="nav-collapse collapse pull-right">
+                <a href="javascript:void(0);" class="btn" id="clearOutput">Clear</a>
+            </div>
+        </div>
+    </div>
 </div>
-<div style="float: left; padding: 0px 20px">
-  <p>Fetch some JSON from main.py</p>
-  <dl>
-    <dt>Message:</dt>
-    <dd id="message"></dd>
-  </dl>
-  <input type=button value="Get Message" id="getMessageButton" onClick="getMessageClick()"/>
+<div class="container">
+    
+    <form action="javascript:void(0);">
+        <h2>List commands</h2>
+        <div><input id="listCommands" type="submit" class="btn btn-small" value="Submit" disabled></div>
+    </form>
+    
+    <form action="javascript:void(0);">
+        <h2>Insert command</h2>
+        <div><span style="width: 90px; display: inline-block;">Name: </span><input id="name" /></div>
+        <div><span style="width: 90px; display: inline-block;">Number: </span><input id="script_number" /></div>
+        <div><input id="insertCommand" type="submit" class="btn btn-small" value="Submit" disabled></div>
+    </form>
+
+    <div id="outputLog"></div>
+    
+    <script type="text/javascript">
+        function init() {
+        	rh.mercury.init('https://fisherds-hangout-gcm.appspot.com/_ah/api');
+        	//rh.mercury.init('//' + window.location.host + '/_ah/api');
+        }
+    </script>
+    <script src="https://apis.google.com/js/client.js?onload=init"></script>
 </div>
-<div style="clear: both;"></div>
 
 ]]></Content>
 </Module>

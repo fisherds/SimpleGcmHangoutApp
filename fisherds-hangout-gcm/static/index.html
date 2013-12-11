@@ -2,9 +2,21 @@
 <html>
 <head>
     <title>Hangout GCM</title>
-    <script type="text/javascript" src="/static/js/base.js"></script>
+
+
+<!--      <script type="text/javascript" src="https://fisherds-hangout-gcm.appspot.com/static/js/base.js"></script> -->
+
+
     <link type="text/css" rel="stylesheet" href="/static/bootstrap/css/bootstrap.css" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="/static/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+    
+<!--  	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css"> -->
+ 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+ 	<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    
+    
+    <script type="text/javascript" src="/static/js/base.js"></script>
     <style type="text/css">
         body {
             padding-top: 40px;
@@ -65,6 +77,7 @@
     
     <script type="text/javascript">
         function init() {
+        	//rh.mercury.init('https://fisherds-hangout-gcm.appspot.com/_ah/api');
         	rh.mercury.init('//' + window.location.host + '/_ah/api');
         }
     </script>

@@ -95,7 +95,29 @@ rh.mercury.enableButtons = function() {
 				document.getElementById('name').value,
 				document.getElementById('script_number').value);
 	}
+	
+
+	var xTriggered = 0;
+	$(document).keypress(function( event ) {
+		if (event.which == 49) {
+			console.log("Execute script 1");
+			rh.mercury.insertCommand('script', 1);
+		} else if (event.which == 50) {
+			console.log("Execute script 2");
+			rh.mercury.insertCommand('script', 2);
+		} else if (event.which == 51) {
+			console.log("Execute script 3");
+			rh.mercury.insertCommand('script', 3);
+		} else if (event.which == 52) {
+			console.log("Execute script 4");
+			rh.mercury.insertCommand('script', 4);
+		}
+		  xTriggered++;
+		  var msg = "Handler for .keypress() called " + xTriggered + " time(s).";
+		  console.log(msg);
+	});
 };
+
 
 
 /**
@@ -106,8 +128,6 @@ rh.mercury.enableButtons = function() {
  */
 rh.mercury.init = function(apiRoot) {
   console.log("init called");
-	//document.getElementById('listCommands').disabled = true;
-	//document.getElementById('insertCommand').disabled = true;
   var apisToLoad;
   var callback = function() {
 	  console.log("Loaded an api");
@@ -119,3 +139,4 @@ rh.mercury.init = function(apiRoot) {
   apisToLoad = 1; // must match number of calls to gapi.client.load()
   gapi.client.load('mercury', 'v1', callback, apiRoot);
 };
+
